@@ -5,6 +5,8 @@ import Welcome from "./pages/Welcome.jsx";
 import Home from "./pages/Home.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
 import Header from "./components/Header.jsx";
+import User from './pages/Users.jsx';
+import UsersDetails from './pages/UsersDetails.jsx';
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/welcome" element={<Welcome/>}/>
                 <Route path="/books/:id" element={<BookDetails/>}/>
+                <Route path='/users' element={<User/>} />
+                <Route path='/users/:id' element={<UsersDetails/>}/>
             </Routes>
         </div>
     </>

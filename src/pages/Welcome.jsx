@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Bonjour from "../components/Bonjour.jsx";
 import MultipleFive from "../components/MultipleFive.jsx";
 import Counter from "../components/Counter.jsx";

@@ -7,7 +7,7 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://nodeexpresscourse-m1-dev-g3-effrei.onrender.com/api/books');
+                const response = await fetch('https://node-js-back.onrender.com/api/books');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }

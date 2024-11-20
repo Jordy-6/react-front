@@ -24,7 +24,7 @@ function BookDetails() {
 
 
     return (
-        <div>
+        <div className="container-fluid">
             <p>{book.label}</p>
             <p>{book.description}</p>
         </div>

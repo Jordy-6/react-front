@@ -1,28 +1,37 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import Welcome from "./pages/Welcome.jsx";
 import Home from "./pages/Home.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
 import Header from "./components/Header.jsx";
-import User from './pages/Users.jsx';
-import UsersDetails from './pages/UsersDetails.jsx';
+import React, {useContext} from "react";
+import Users from "./pages/Users.jsx";
+import {ThemeContext} from "./context/ThemeContext.jsx";
+import classNames from "classnames";
 
 function App() {
 
+    const { theme } = useContext(ThemeContext);
+
+
   return (
     <>
-        <div className="container-fluid vh-100">
+        <div className={classNames("w-100 vh-100", {
+            "bg-dark text-light": theme === "dark",
+            "bg-light text-dark": theme === "light"
+        })}>
             <div className="row">
-                <Header />
+                <Header/>
             </div>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/welcome" element={<Welcome/>}/>
-                <Route path="/books/:id" element={<BookDetails/>}/>
-                <Route path='/users' element={<User/>} />
-                <Route path='/users/:id' element={<UsersDetails/>}/>
-            </Routes>
+            <div className="p-3">
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/welcome" element={<Welcome/>}/>
+                    <Route path="/users" element={<Users />}/>
+                    <Route path="/books/:id" element={<BookDetails/>}/>
+                </Routes>
+            </div>
         </div>
     </>
   )

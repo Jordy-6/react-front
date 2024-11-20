@@ -8,7 +8,7 @@ function Welcome() {
     const [name, setName] = useState('')
 
     return (
-        <div>
+        <div className="container-fluid h-auto vh-100">
             <Bonjour name={name} setName={setName}/>
             <MultipleFive />
             <Counter />

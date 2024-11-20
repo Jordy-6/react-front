@@ -19,7 +19,7 @@ function MultipleFive() {
     }
 
     return (
-        <div>
+        <div className="container-fluid">
             <button onClick={() => filterList()}>Multiple de Five</button>
             <ul>
                 {displayList.map(index => (

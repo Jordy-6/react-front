@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AuthContext } from '../context/AuthContext.jsx';
 
@@ -9,11 +9,16 @@ Bonjour.propTypes = {
 
 function Bonjour({ name, setName }) {
     const { user } = useContext(AuthContext);
+    // const [userBonjour, setUserBonjour] = useState(user);
+    //
+    // useEffect(() => {
+    //     setUserBonjour(user);
+    // }, [userBonjour]);
 
     return (
         <div className="card">
             <h1>
-                Bonjour {user.firstname} {user.lastname}
+                Bonjour {user?.lastname} {user?.firstname}
             </h1>
             <input type="text" onChange={(event) => setName(event.target.value)} />
         </div>

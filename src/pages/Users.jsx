@@ -1,8 +1,10 @@
-import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import LoadingScreen from '../components/LoadingScreen.jsx';
 
 function Users() {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,17 +20,25 @@ function Users() {
             }
         };
 
-        fetchData()
-    }, [] )
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if (users) {
+            setIsLoading(true);
+        }
+    }, [users]);
+
+    if (!isLoading) {
+        return <LoadingScreen />;
+    }
 
     return (
         <div>
-            <h1>Accueil</h1>
-            <p>test</p>
-            <ul>
-                {users.map(users => (
-                    <li key={users.id}>
-                        <Link to={`/users/${users.id}`}> {users.name}</Link>
+            <ul className="container-fluid vh-100">
+                {users.map((user) => (
+                    <li key={user.id}>
+                        <Link to={`/user/${user.id}`}>{user.name}</Link>
                     </li>
                 ))}
             </ul>

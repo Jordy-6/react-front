@@ -1,25 +1,25 @@
-import React, {useState, createContext} from 'react';
+import { useState, createContext } from 'react';
 
-const ThemeContext = createContext("light")
-const  ThemeProvider = ({ children}) => {
-    const defaultTheme = window.localStorage.getItem("theme") ?? "light";
+const defaultTheme = window.localStorage.getItem('theme');
+const ThemeContext = createContext(defaultTheme);
+const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(defaultTheme);
 
     const toggleTheme = (value) => {
-        window.localStorage.setItem("theme", value)
+        window.localStorage.setItem('theme', value);
         setTheme(value);
-    }
+    };
 
     return (
-       <ThemeContext.Provider
-        value={{
-            theme,
-            toggleTheme
-        }}
-       >
-           {children}
-       </ThemeContext.Provider>
+        <ThemeContext.Provider
+            value={{
+                theme,
+                toggleTheme
+            }}
+        >
+            {children}
+        </ThemeContext.Provider>
     );
-}
+};
 
-export {ThemeContext, ThemeProvider};
+export { ThemeContext, ThemeProvider };

@@ -1,16 +1,19 @@
-import React, {useContext, useEffect, useState} from "react";
-import {ThemeContext} from "../context/ThemeContext.jsx";
-
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function ToggleButton() {
-
-    const { toggleTheme } = useContext(ThemeContext)
-    const [isToggled, setIsToggled] = useState(false)
+    const { toggleTheme, theme } = useContext(ThemeContext);
+    const [isToggled, setIsToggled] = useState(theme === 'dark');
+    const [hasRendered, setHasRendered] = useState(false);
 
     useEffect(() => {
-        toggleTheme(isToggled  ? 'dark' : 'light')
-    }, [isToggled]);
+        if (!hasRendered) {
+            setHasRendered(true); // Marque le premier rendu
+            return;
+        }
 
+        toggleTheme(isToggled ? 'dark' : 'light');
+    }, [isToggled]);
 
     return (
         <>

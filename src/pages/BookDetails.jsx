@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function BookDetails() {
-    const { id } = useParams()
+    const { id } = useParams();
     const [book, setBook] = useState({});
 
     useEffect(() => {
@@ -19,9 +19,8 @@ function BookDetails() {
             }
         };
 
-        fetchData()
-    }, [] )
-
+        fetchData();
+    }, []);
 
     return (
         <div className="container-fluid">

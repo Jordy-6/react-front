@@ -9,6 +9,8 @@ import React, { useContext } from 'react';
 import Users from './pages/Users.jsx';
 import { ThemeContext } from './context/ThemeContext.jsx';
 import classNames from 'classnames';
+import Register from './pages/Register.jsx';
+import Login from './pages/Login.jsx';
 
 function App() {
     const { theme } = useContext(ThemeContext);
@@ -30,6 +32,8 @@ function App() {
                         <Route path="/welcome" element={<Welcome />} />
                         <Route path="/users" element={<Users />} />
                         <Route path="/books/:id" element={<BookDetails />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
                     </Routes>
                 </div>
             </div>

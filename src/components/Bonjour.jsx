@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { AuthContext } from '../context/AuthContext.jsx';
 
 Bonjour.propTypes = {
     name: PropTypes.string.isRequired,
@@ -7,9 +8,13 @@ Bonjour.propTypes = {
 };
 
 function Bonjour({ name, setName }) {
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="card">
-            <h1>Bonjour {name}</h1>
+            <h1>
+                Bonjour {user.firstname} {user.lastname}
+            </h1>
             <input type="text" onChange={(event) => setName(event.target.value)} />
         </div>
     );

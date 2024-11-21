@@ -38,6 +38,16 @@ function Header() {
                             </a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link active">
+                                <Link to={'/login'}>Login</Link>
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active">
+                                <Link to={'/register'}>Register</Link>
+                            </a>
+                        </li>
+                        <li className="nav-item">
                             <ToggleButton />
                         </li>
                     </ul>

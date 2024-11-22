@@ -22,7 +22,7 @@ function CreateBook() {
                 onSubmit={async (values) => {
                     try {
                         const response = await fetch(
-                            'https://nodeexpresscourse-m1-dev-g3-effrei.onrender.com/api/books',
+                            'https://node-js-back.onrender.com/api/books',
                             {
                                 method: 'POST',
                                 body: JSON.stringify(values),

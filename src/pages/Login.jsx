@@ -21,7 +21,7 @@ function Login() {
             onSubmit={async (values) => {
                 try {
                     const response = await fetch(
-                        'https://nodeexpresscourse-m1-dev-g3-effrei.onrender.com/api/auth/login',
+                        'https://node-js-back.onrender.com/api/auth/login',
                         {
                             method: 'POST',
                             body: JSON.stringify(values),

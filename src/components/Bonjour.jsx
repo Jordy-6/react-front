@@ -9,11 +9,6 @@ Bonjour.propTypes = {
 
 function Bonjour({ name, setName }) {
     const { user } = useContext(AuthContext);
-    // const [userBonjour, setUserBonjour] = useState(user);
-    //
-    // useEffect(() => {
-    //     setUserBonjour(user);
-    // }, [userBonjour]);
 
     return (
         <div className="card">

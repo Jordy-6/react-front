@@ -1,22 +1,33 @@
 import React, { useState, createContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(window.localStorage.getItem('user') ?? null);
-    const [token, setToken] = useState(null);
+    const navigate = useNavigate();
+    const [user, setUser] = useState(localStorage.getItem('user') ?? null);
+    const [token, setToken] = useState(localStorage.getItem('token') ?? null);
 
     const login = (value) => {
-        window.localStorage.setItem('token', value.token);
-        window.localStorage.setItem('user', JSON.stringify(value.user));
+        localStorage.setItem('token', value.token);
+        localStorage.setItem('user', JSON.stringify(value.user));
         setToken(value.token);
         setUser(value.user);
+    };
+
+    const logout = () => {
+        setUser(null);
+        setToken(null);
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
     };
 
     return (
         <AuthContext.Provider
             value={{
                 user,
-                login
+                token,
+                login,
+                logout
             }}
         >
             {children}

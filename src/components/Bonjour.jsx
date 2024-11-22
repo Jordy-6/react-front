@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { AuthContext } from '../context/AuthContext.jsx';
 
@@ -7,7 +7,7 @@ Bonjour.propTypes = {
     setName: PropTypes.func.isRequired
 };
 
-function Bonjour({ name, setName }) {
+function Bonjour({ setName }) {
     const { user } = useContext(AuthContext);
 
     return (

@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Welcome from './pages/Welcome.jsx';
 import Home from './pages/Home.jsx';
 import BookDetails from './pages/BookDetails.jsx';
@@ -14,6 +14,8 @@ import Login from './pages/Login.jsx';
 import ProtectedRoute from './routes/ProtectedRoute.jsx';
 import CreateBook from './pages/CreateBook.jsx';
 import NotFound from './pages/NotFound.jsx';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
     const { theme } = useContext(ThemeContext);
@@ -59,6 +61,7 @@ function App() {
                         {/*404*/}
                         <Route path="/*" element={<NotFound />} />
                     </Routes>
+                    <ToastContainer />
                 </div>
             </div>
         </>

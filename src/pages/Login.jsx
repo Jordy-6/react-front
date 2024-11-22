@@ -3,6 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { AuthContext } from '../context/AuthContext.jsx';
+import { toast } from 'react-toastify';
 
 function Login() {
     const navigate = useNavigate();
@@ -43,27 +44,31 @@ function Login() {
                         },
                         token
                     });
+                    toast.success('Vous etes connectés !');
                     navigate('/welcome');
                 } catch (error) {
                     console.error('Failed to register:', error);
+                    toast.error('Echec de la connexion !');
                 }
             }}
         >
-            <Form>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <Field className="form-control" type="email" name="email" />
-                    <ErrorMessage style={{ color: 'red' }} name="email" component="div" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <Field className="form-control" type="password" name="password" />
-                    <ErrorMessage style={{ color: 'red' }} name="password" component="div" />
-                </div>
-                <button className="btn btn-primary mt-3" type="submit">
-                    Submit
-                </button>
-            </Form>
+            {({ isSubmitting }) => (
+                <Form>
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <Field className="form-control" type="email" name="email" />
+                        <ErrorMessage style={{ color: 'red' }} name="email" component="div" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <Field className="form-control" type="password" name="password" />
+                        <ErrorMessage style={{ color: 'red' }} name="password" component="div" />
+                    </div>
+                    <button className="btn btn-primary mt-3" type="submit" disabled={isSubmitting}>
+                        Submit
+                    </button>
+                </Form>
+            )}
         </Formik>
     );
 }

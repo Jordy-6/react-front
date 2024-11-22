@@ -1,9 +1,9 @@
 import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-    const navigate = useNavigate();
     const [user, setUser] = useState(localStorage.getItem('user') ?? null);
     const [token, setToken] = useState(localStorage.getItem('token') ?? null);
 

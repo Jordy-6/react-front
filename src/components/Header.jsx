@@ -50,7 +50,7 @@ function Header() {
 
                                 <li className="nav-item">
                                     <a className="nav-link active">
-                                        <Link to={'/logout'} onClick={logout}>
+                                        <Link to={'/'} onClick={logout}>
                                             Logout
                                         </Link>
                                     </a>

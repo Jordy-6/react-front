@@ -2,6 +2,7 @@ import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 function Register() {
     const navigate = useNavigate();
@@ -73,7 +74,7 @@ function Register() {
                     <Field className="form-control" type="confirmPassword" name="confirmPassword" />
                     <ErrorMessage style={{ color: 'red' }} name="confirmPassword" component="div" />
                 </div>
-                <button className="btn btn-primary mt-3" type="submit">
+                <button className="btn btn-primary mt-3" type="submit" disabled>
                     Submit
                 </button>
             </Form>
